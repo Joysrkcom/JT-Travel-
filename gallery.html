@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery - JT Travel Agency</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="font-sans text-gray-800">
+
+<!-- Navbar -->
+<header class="fixed w-full bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+    <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">JT Travel</a>
+
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex space-x-8 items-center">
+      <a href="index.html" class="flex items-center space-x-2 hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="about.html" class="flex items-center space-x-2 hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+        <i class="fas fa-info-circle"></i>
+        <span>About</span>
+      </a>
+      <a href="packages.html" class="flex items-center space-x-2 hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+        <i class="fas fa-suitcase"></i>
+        <span>Packages</span>
+      </a>
+      <a href="gallery.html" class="flex items-center space-x-2 hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+        <i class="fas fa-images"></i>
+        <span>Gallery</span>
+      </a>
+      <a href="contact.html" class="flex items-center space-x-2 hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+        <i class="fas fa-envelope"></i>
+        <span>Contact</span>
+      </a>
+    </nav>
+
+    <!-- Login Button -->
+    <button onclick="window.location.href='login.html'" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+      <i class="fas fa-sign-in-alt"></i>
+      <span>Login</span>
+    </button>
+
+    <!-- Mobile Menu Button -->
+    <button onclick="toggleMobileMenu()" class="md:hidden text-purple-600 text-2xl">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobileMenu" class="md:hidden bg-white shadow-lg absolute top-full left-0 w-full hidden transition-all duration-300">
+    <nav class="flex flex-col space-y-2 p-4">
+      <a href="index.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">Home</a>
+      <a href="about.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">About</a>
+      <a href="packages.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">Packages</a>
+      <a href="gallery.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">Gallery</a>
+      <a href="contact.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Gallery -->
+<section class="pt-20 py-20 bg-gray-100">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-center mb-10">Travel Gallery</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4">
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-purple-600 to-purple-800 text-white relative">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Brand -->
+    <div class="transform hover:scale-105 transition-transform duration-300">
+      <h4 class="text-2xl font-bold mb-2">JT Travel Agency</h4>
+      <p class="text-sm">
+        Making your travel dreams come true with reliable and affordable tour packages.
+      </p>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h5 class="font-semibold mb-3">Follow Us</h5>
+      <div class="flex space-x-4 text-2xl">
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fas fa-globe"></i></a>
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="text-sm mt-4">Stay connected for offers & updates</p>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+      <h5 class="font-semibold mb-3">Newsletter</h5>
+      <p class="text-sm mb-3">Subscribe for exclusive deals and travel tips.</p>
+      <form class="space-y-2">
+        <input type="email" placeholder="Your Email" class="w-full p-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300">
+        <button type="submit" class="w-full bg-purple-500 hover:bg-purple-400 text-white py-2 rounded transition-colors duration-300">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="text-center text-sm bg-purple-900 py-3">
+    © 2025 JT Travel Agency | Portfolio Project by Joy Sarker
+  </div>
+
+  <!-- Back to Top Button -->
+  <button onclick="scrollToTop()" class="fixed bottom-4 right-4 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full shadow-lg transform hover:scale-110 transition-all duration-300">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</footer>
+
+<script>
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('hidden');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Packages - JT Travel Agency</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body class="font-sans text-gray-800">
+
+<!-- Navbar -->
+<header class="fixed w-full bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+    <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">JT Travel</a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="index.html" class="hover:text-purple-600">Home</a>
+      <a href="about.html" class="hover:text-purple-600">About</a>
+      <a href="packages.html" class="hover:text-purple-600">Packages</a>
+      <a href="gallery.html" class="hover:text-purple-600">Gallery</a>
+      <a href="contact.html" class="hover:text-purple-600">Contact</a>
+    </nav>
+
+    <!-- Login Button -->
+    <button onclick="window.location.href='login.html'" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+      Login
+    </button>
+
+    <!-- Mobile Menu Button -->
+    <button onclick="toggleMobileMenu()" class="md:hidden text-purple-600 text-2xl">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobileMenu" class="md:hidden bg-white shadow-lg absolute top-full left-0 w-full hidden transition-all duration-300">
+    <nav class="flex flex-col space-y-2 p-4">
+      <a href="index.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">Home</a>
+      <a href="about.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">About</a>
+      <a href="packages.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">Packages</a>
+      <a href="gallery.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">Gallery</a>
+      <a href="contact.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Packages -->
+<section class="pt-20 py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">Popular Tour Packages</h3>
+
+    <input type="text" id="search"
+      placeholder="Search destination..."
+      class="border p-3 w-full mb-8 rounded"
+      onkeyup="filterPackages()"
+      data-aos="fade-up" data-aos-delay="200">
+
+    <div id="packageList" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="400">
+
+      <!-- Card -->
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Thailand" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1505739773434-c4f6c8d0dcb6"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Thailand Tour</h4>
+          <p class="text-gray-600">5 Days / 4 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Explore Bangkok, Phuket beaches, and ancient temples. Includes flights, hotels, and guided tours.</p>
+          <p class="font-semibold mt-2">$500</p>
+          <button onclick="openBooking('Thailand')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Malaysia" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1526481280691-3d3e0f1b0a2b"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Malaysia Tour</h4>
+          <p class="text-gray-600">4 Days / 3 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Visit Kuala Lumpur, Penang, and Langkawi. Enjoy cultural sites, food tours, and island hopping.</p>
+          <p class="font-semibold mt-2">$400</p>
+          <button onclick="openBooking('Malaysia')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Dubai" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Dubai Tour</h4>
+          <p class="text-gray-600">6 Days / 5 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Experience Burj Khalifa, desert safaris, and luxury shopping. Includes desert camps and city tours.</p>
+          <p class="font-semibold mt-2">$700</p>
+          <button onclick="openBooking('Dubai')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <!-- New Packages -->
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Japan" data-aos="fade-up" data-aos-delay="350">
+        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Japan Tour</h4>
+          <p class="text-gray-600">7 Days / 6 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Discover Tokyo, Kyoto temples, and Mount Fuji. Includes bullet trains, traditional ryokans, and cherry blossom views.</p>
+          <p class="font-semibold mt-2">$1200</p>
+          <button onclick="openBooking('Japan')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="France" data-aos="fade-up" data-aos-delay="400">
+        <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">France Tour</h4>
+          <p class="text-gray-600">8 Days / 7 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Paris Eiffel Tower, Loire Valley castles, and French Riviera. Wine tastings, Seine cruises, and gourmet meals.</p>
+          <p class="font-semibold mt-2">$1500</p>
+          <button onclick="openBooking('France')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Italy" data-aos="fade-up" data-aos-delay="450">
+        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Italy Tour</h4>
+          <p class="text-gray-600">6 Days / 5 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Rome Colosseum, Venice canals, Florence art. Pasta making classes, Vatican tours, and Amalfi Coast.</p>
+          <p class="font-semibold mt-2">$1100</p>
+          <button onclick="openBooking('Italy')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Australia" data-aos="fade-up" data-aos-delay="500">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Australia Tour</h4>
+          <p class="text-gray-600">10 Days / 9 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Sydney Opera House, Great Barrier Reef, Uluru. Wildlife safaris, snorkeling, and outback adventures.</p>
+          <p class="font-semibold mt-2">$1800</p>
+          <button onclick="openBooking('Australia')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Canada" data-aos="fade-up" data-aos-delay="550">
+        <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Canada Tour</h4>
+          <p class="text-gray-600">7 Days / 6 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Toronto, Niagara Falls, Banff Rockies. Wildlife viewing, maple syrup farms, and northern lights.</p>
+          <p class="font-semibold mt-2">$1300</p>
+          <button onclick="openBooking('Canada')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Brazil" data-aos="fade-up" data-aos-delay="600">
+        <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Brazil Tour</h4>
+          <p class="text-gray-600">8 Days / 7 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Rio Carnival, Amazon rainforest, Iguazu Falls. Samba dances, jungle treks, and beach parties.</p>
+          <p class="font-semibold mt-2">$1000</p>
+          <button onclick="openBooking('Brazil')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="India" data-aos="fade-up" data-aos-delay="650">
+        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">India Tour</h4>
+          <p class="text-gray-600">9 Days / 8 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Taj Mahal, Rajasthan palaces, Kerala backwaters. Spice markets, yoga retreats, and elephant safaris.</p>
+          <p class="font-semibold mt-2">$800</p>
+          <button onclick="openBooking('India')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Egypt" data-aos="fade-up" data-aos-delay="700">
+        <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d0b7ef"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Egypt Tour</h4>
+          <p class="text-gray-600">6 Days / 5 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Pyramids of Giza, Nile cruises, Luxor temples. Camel rides, bazaars, and Red Sea diving.</p>
+          <p class="font-semibold mt-2">$900</p>
+          <button onclick="openBooking('Egypt')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Turkey" data-aos="fade-up" data-aos-delay="750">
+        <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Turkey Tour</h4>
+          <p class="text-gray-600">5 Days / 4 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Istanbul bazaars, Cappadocia hot air balloons, Ephesus ruins. Hammams, kebabs, and Bosphorus cruises.</p>
+          <p class="font-semibold mt-2">$600</p>
+          <button onclick="openBooking('Turkey')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Mexico" data-aos="fade-up" data-aos-delay="800">
+        <img src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Mexico Tour</h4>
+          <p class="text-gray-600">7 Days / 6 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Cancun beaches, Chichen Itza pyramids, Yucatan cenotes. Tequila tours, mariachi music, and Mayan ruins.</p>
+          <p class="font-semibold mt-2">$750</p>
+          <button onclick="openBooking('Mexico')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="South Africa" data-aos="fade-up" data-aos-delay="850">
+        <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">South Africa Tour</h4>
+          <p class="text-gray-600">8 Days / 7 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Cape Town Table Mountain, safari in Kruger, wine regions. Shark cage diving, elephant rides, and Zulu villages.</p>
+          <p class="font-semibold mt-2">$1400</p>
+          <button onclick="openBooking('South Africa')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Greece" data-aos="fade-up" data-aos-delay="900">
+        <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Greece Tour</h4>
+          <p class="text-gray-600">6 Days / 5 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Athens Acropolis, Santorini sunsets, Mykonos islands. Olive oil tastings, ancient ruins, and Aegean cruises.</p>
+          <p class="font-semibold mt-2">$950</p>
+          <button onclick="openBooking('Greece')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Spain" data-aos="fade-up" data-aos-delay="950">
+        <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Spain Tour</h4>
+          <p class="text-gray-600">7 Days / 6 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Barcelona Gaudi, Madrid Prado, Andalusia flamenco. Paella cooking, bullfights, and Costa del Sol beaches.</p>
+          <p class="font-semibold mt-2">$1050</p>
+          <button onclick="openBooking('Spain')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="New Zealand" data-aos="fade-up" data-aos-delay="1000">
+        <img src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">New Zealand Tour</h4>
+          <p class="text-gray-600">9 Days / 8 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Auckland Sky Tower, Hobbiton, Milford Sound. Bungee jumping, Maori culture, and fjord cruises.</p>
+          <p class="font-semibold mt-2">$1600</p>
+          <button onclick="openBooking('New Zealand')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Argentina" data-aos="fade-up" data-aos-delay="1050">
+        <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Argentina Tour</h4>
+          <p class="text-gray-600">8 Days / 7 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Buenos Aires tango, Iguazu Falls, Patagonia glaciers. Wine tours, gaucho ranches, and Andean hikes.</p>
+          <p class="font-semibold mt-2">$1150</p>
+          <button onclick="openBooking('Argentina')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Peru" data-aos="fade-up" data-aos-delay="1100">
+        <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Peru Tour</h4>
+          <p class="text-gray-600">7 Days / 6 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Machu Picchu, Cusco, Amazon rainforest. Inca trails, llama farms, and Andean villages.</p>
+          <p class="font-semibold mt-2">$850</p>
+          <button onclick="openBooking('Peru')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Morocco" data-aos="fade-up" data-aos-delay="1150">
+        <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d0b7ef"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Morocco Tour</h4>
+          <p class="text-gray-600">6 Days / 5 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Marrakech souks, Sahara desert, Atlas Mountains. Tagine cooking, hammams, and camel treks.</p>
+          <p class="font-semibold mt-2">$650</p>
+          <button onclick="openBooking('Morocco')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Vietnam" data-aos="fade-up" data-aos-delay="1200">
+        <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Vietnam Tour</h4>
+          <p class="text-gray-600">8 Days / 7 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Hanoi temples, Halong Bay, Ho Chi Minh City. Rice terraces, street food tours, and Mekong Delta cruises.</p>
+          <p class="font-semibold mt-2">$700</p>
+          <button onclick="openBooking('Vietnam')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Kenya" data-aos="fade-up" data-aos-delay="1250">
+        <img src="https://images.unsplash.com/photo-1547471080-9cc396607bbc"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Kenya Tour</h4>
+          <p class="text-gray-600">7 Days / 6 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Serengeti safaris, Maasai Mara, Mount Kenya. Big Five wildlife, tribal visits, and hot air balloon rides.</p>
+          <p class="font-semibold mt-2">$1250</p>
+          <button onclick="openBooking('Kenya')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Portugal" data-aos="fade-up" data-aos-delay="1300">
+        <img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Portugal Tour</h4>
+          <p class="text-gray-600">5 Days / 4 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Lisbon trams, Porto wine cellars, Algarve beaches. Fado music, pastel de nata, and Douro Valley cruises.</p>
+          <p class="font-semibold mt-2">$800</p>
+          <button onclick="openBooking('Portugal')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Russia" data-aos="fade-up" data-aos-delay="1350">
+        <img src="https://images.unsplash.com/photo-1513326738677-b964603b136d"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Russia Tour</h4>
+          <p class="text-gray-600">7 Days / 6 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Moscow Kremlin, St. Petersburg Hermitage, Trans-Siberian. Vodka tastings, ballet shows, and Siberian adventures.</p>
+          <p class="font-semibold mt-2">$1200</p>
+          <button onclick="openBooking('Russia')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Netherlands" data-aos="fade-up" data-aos-delay="1400">
+        <img src="https://images.unsplash.com/photo-1534351590666-13e3e963b3b6"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Netherlands Tour</h4>
+          <p class="text-gray-600">5 Days / 4 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Amsterdam canals, Keukenhof tulips, windmills. Cheese farms, bicycle tours, and Rijksmuseum.</p>
+          <p class="font-semibold mt-2">$900</p>
+          <button onclick="openBooking('Netherlands')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Sweden" data-aos="fade-up" data-aos-delay="1450">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Sweden Tour</h4>
+          <p class="text-gray-600">6 Days / 5 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Stockholm archipelago, Gothenburg, northern lights. Sauna experiences, Viking history, and fjord cruises.</p>
+          <p class="font-semibold mt-2">$1100</p>
+          <button onclick="openBooking('Sweden')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Ireland" data-aos="fade-up" data-aos-delay="1500">
+        <img src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Ireland Tour</h4>
+          <p class="text-gray-600">7 Days / 6 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Dublin pubs, Cliffs of Moher, Galway. Guinness tours, Celtic music, and emerald landscapes.</p>
+          <p class="font-semibold mt-2">$1000</p>
+          <button onclick="openBooking('Ireland')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Austria" data-aos="fade-up" data-aos-delay="1550">
+        <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Austria Tour</h4>
+          <p class="text-gray-600">6 Days / 5 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Vienna palaces, Salzburg lakes, Alps skiing. Mozart concerts, waltzes, and Sound of Music tours.</p>
+          <p class="font-semibold mt-2">$950</p>
+          <button onclick="openBooking('Austria')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Belgium" data-aos="fade-up" data-aos-delay="1600">
+        <img src="https://images.unsplash.com/photo-1559113202-c916b8e44373"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Belgium Tour</h4>
+          <p class="text-gray-600">4 Days / 3 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Brussels Grand Place, Bruges canals, chocolate factories. Beer tastings, waffles, and Atomium.</p>
+          <p class="font-semibold mt-2">$700</p>
+          <button onclick="openBooking('Belgium')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg hover:scale-105 hover:rotate-1 transition-all duration-300 "
+           data-name="Denmark" data-aos="fade-up" data-aos-delay="1650">
+        <img src="https://images.unsplash.com/photo-1513415277634-6fda6b25210c"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Denmark Tour</h4>
+          <p class="text-gray-600">5 Days / 4 Nights</p>
+          <p class="text-sm text-gray-500 mt-1">Copenhagen Tivoli, Little Mermaid, Kronborg Castle. Hygge culture, smørrebrød, and Viking ships.</p>
+          <p class="font-semibold mt-2">$850</p>
+          <button onclick="openBooking('Denmark')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-center mt-8">
+      <button id="prevBtn" onclick="changePage(-1)" class="px-4 py-2 mx-1 bg-purple-600 text-white rounded hover:bg-purple-700 disabled:opacity-50" disabled>Previous</button>
+      <span id="pageNumbers" class="flex"></span>
+      <button id="nextBtn" onclick="changePage(1)" class="px-4 py-2 mx-1 bg-purple-600 text-white rounded hover:bg-purple-700 disabled:opacity-50">Next</button>
+    </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Booking Modal -->
+<div id="bookingModal"
+  class="hidden fixed inset-0 bg-black/60 flex items-center justify-center">
+  <div class="bg-white p-6 rounded-xl w-96 max-h-screen overflow-y-auto">
+    <h3 class="text-xl font-bold mb-4">Detailed Booking Request</h3>
+    <input id="packageName" class="border p-2 w-full mb-3" readonly placeholder="Package Name">
+    <input id="fullName" class="border p-2 w-full mb-3" placeholder="Full Name" required>
+    <input id="email" type="email" class="border p-2 w-full mb-3" placeholder="Email" required>
+    <input id="phone" type="tel" class="border p-2 w-full mb-3" placeholder="Phone Number" required>
+    <input id="travelers" type="number" class="border p-2 w-full mb-3" placeholder="Number of Travelers" min="1" required>
+    <input id="departureDate" type="date" class="border p-2 w-full mb-3" required>
+    <textarea id="specialRequests" class="border p-2 w-full mb-3" placeholder="Special Requests or Notes" rows="3"></textarea>
+    <button onclick="submitBooking()" class="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700">
+      Submit Request
+    </button>
+    <button onclick="closeBooking()" class="text-red-500 mt-3 w-full hover:text-red-700">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-purple-600 to-purple-800 text-white relative">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Brand -->
+    <div class="transform hover:scale-105 transition-transform duration-300">
+      <h4 class="text-2xl font-bold mb-2">JT Travel Agency</h4>
+      <p class="text-sm">
+        Making your travel dreams come true with reliable and affordable tour packages.
+      </p>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h5 class="font-semibold mb-3">Follow Us</h5>
+      <div class="flex space-x-4 text-2xl">
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fas fa-globe"></i></a>
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="text-sm mt-4">Stay connected for offers & updates</p>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+      <h5 class="font-semibold mb-3">Newsletter</h5>
+      <p class="text-sm mb-3">Subscribe for exclusive deals and travel tips.</p>
+      <form class="space-y-2">
+        <input type="email" placeholder="Your Email" class="w-full p-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300">
+        <button type="submit" class="w-full bg-purple-500 hover:bg-purple-400 text-white py-2 rounded transition-colors duration-300">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="text-center text-sm bg-purple-900 py-3">
+    © 2025 JT Travel Agency | Portfolio Project by Joy Sarker
+  </div>
+
+  <!-- Back to Top Button -->
+  <button onclick="scrollToTop()" class="fixed bottom-4 right-4 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full shadow-lg transform hover:scale-110 transition-all duration-300">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</footer>
+
+<script>
+let currentPage = 1;
+const itemsPerPage = 6;
+const packages = document.querySelectorAll('.package');
+const totalPages = Math.ceil(packages.length / itemsPerPage);
+
+function showPage(page) {
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  packages.forEach((pkg, index) => {
+    pkg.style.display = (index >= start && index < end) ? 'block' : 'none';
+  });
+  updatePaginationButtons();
+}
+
+function updatePaginationButtons() {
+  const pageNumbers = document.getElementById('pageNumbers');
+  pageNumbers.innerHTML = '';
+  for (let i = 1; i <= totalPages; i++) {
+    const button = document.createElement('button');
+    button.textContent = i;
+    button.className = `px-4 py-2 mx-1 rounded ${i === currentPage ? 'bg-purple-700 text-white' : 'bg-purple-600 text-white hover:bg-purple-700'}`;
+    button.onclick = () => changePage(i - currentPage);
+    pageNumbers.appendChild(button);
+  }
+  document.getElementById('prevBtn').disabled = currentPage === 1;
+  document.getElementById('nextBtn').disabled = currentPage === totalPages;
+}
+
+function changePage(direction) {
+  currentPage += direction;
+  if (currentPage < 1) currentPage = 1;
+  if (currentPage > totalPages) currentPage = totalPages;
+  showPage(currentPage);
+}
+
+function filterPackages() {
+  let value = document.getElementById('search').value.toLowerCase();
+  let visibleCount = 0;
+  packages.forEach(pkg => {
+    const isVisible = pkg.dataset.name.toLowerCase().includes(value);
+    pkg.style.display = isVisible ? 'block' : 'none';
+    if (isVisible) visibleCount++;
+  });
+  // If filtering, show all matching, else paginate
+  if (value) {
+    document.getElementById('pageNumbers').style.display = 'none';
+    document.getElementById('prevBtn').style.display = 'none';
+    document.getElementById('nextBtn').style.display = 'none';
+  } else {
+    document.getElementById('pageNumbers').style.display = 'flex';
+    document.getElementById('prevBtn').style.display = 'inline-block';
+    document.getElementById('nextBtn').style.display = 'inline-block';
+    showPage(currentPage);
+  }
+}
+
+function openBooking(name) {
+  document.getElementById('bookingModal').classList.remove('hidden');
+  document.getElementById('packageName').value = name;
+}
+
+function submitBooking() {
+  const packageName = document.getElementById('packageName').value;
+  const fullName = document.getElementById('fullName').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const travelers = document.getElementById('travelers').value;
+  const departureDate = document.getElementById('departureDate').value;
+  const specialRequests = document.getElementById('specialRequests').value;
+
+  if (!fullName || !email || !phone || !travelers || !departureDate) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  // Simulate submission (in real app, send to server)
+  alert(`Booking submitted for ${packageName}\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nTravelers: ${travelers}\nDate: ${departureDate}\nRequests: ${specialRequests}`);
+  closeBooking();
+}
+
+function closeBooking() {
+  document.getElementById('bookingModal').classList.add('hidden');
+  // Clear form
+  document.getElementById('fullName').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('phone').value = '';
+  document.getElementById('travelers').value = '';
+  document.getElementById('departureDate').value = '';
+  document.getElementById('specialRequests').value = '';
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('hidden');
+}
+
+// Initialize pagination
+showPage(currentPage);
+
+// Initialize AOS animations
+AOS.init();
+</script>
+
+</body>
+</html>

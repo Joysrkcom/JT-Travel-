@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JT Travel Agency</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body class="font-sans text-gray-800 m-0 p-0">
+
+<!-- Navbar -->
+<header class="fixed w-full bg-white shadow z-50">
+  <div class="flex justify-between items-center p-4">
+    <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">JT Travel</a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex space-x-8 items-center">
+      <a href="index.html" class="flex items-center space-x-2 hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="about.html" class="flex items-center space-x-2 hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+        <i class="fas fa-info-circle"></i>
+        <span>About</span>
+      </a>
+      <a href="packages.html" class="flex items-center space-x-2 hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+        <i class="fas fa-suitcase"></i>
+        <span>Packages</span>
+      </a>
+      <a href="gallery.html" class="flex items-center space-x-2 hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+        <i class="fas fa-images"></i>
+        <span>Gallery</span>
+      </a>
+      <a href="contact.html" class="flex items-center space-x-2 hover:text-purple-600 transition-all duration-300 transform hover:scale-105">
+        <i class="fas fa-envelope"></i>
+        <span>Contact</span>
+      </a>
+    </nav>
+
+    <!-- Login Button -->
+    <button onclick="openLoginModal()" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+      <i class="fas fa-sign-in-alt"></i>
+      <span>Login</span>
+    </button>
+
+    <!-- Mobile Menu Button -->
+    <button onclick="toggleMobileMenu()" class="md:hidden text-purple-600 text-2xl">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobileMenu" class="md:hidden bg-white shadow-lg absolute top-full left-0 w-full hidden transition-all duration-300">
+    <nav class="flex flex-col space-y-2 p-4">
+      <a href="index.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">Home</a>
+      <a href="about.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">About</a>
+      <a href="packages.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">Packages</a>
+      <a href="gallery.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600 border-b border-gray-200">Gallery</a>
+      <a href="contact.html" onclick="toggleMobileMenu()" class="py-2 text-gray-800 hover:text-purple-600">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="home" class="h-screen bg-cover bg-center flex items-center shadow-lg"
+style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');" data-aos="fade-in">
+  <div class="bg-black/50 w-full h-full flex items-center">
+    <div class="px-6 text-white" data-aos="zoom-in" data-aos-delay="200">
+      <h2 class="text-4xl md:text-6xl font-bold mb-4" data-aos="fade-up" data-aos-delay="400">Explore the World with JT</h2>
+      <p class="text-lg md:text-xl mb-6" data-aos="fade-up" data-aos-delay="600">Premium travel experiences at affordable prices</p>
+      <a href="packages.html" class="bg-purple-600 px-6 py-3 rounded text-white hover:bg-purple-700" data-aos="fade-up" data-aos-delay="800">
+        View Packages
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-20 bg-gray-100" data-aos="fade-in">
+  <div class="px-6">
+    <!-- Hero About -->
+    <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
+      <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1"
+           class="rounded-xl shadow" data-aos="fade-right" data-aos-delay="200">
+      <div data-aos="fade-left" data-aos-delay="400">
+        <h3 class="text-3xl font-bold mb-4">About JT Travel Agency</h3>
+        <p class="mb-4">
+          JT Travel Agency is a premier travel company dedicated to crafting exceptional travel experiences. We specialize in personalized travel solutions, offering comprehensive domestic and international tour packages tailored for individuals, families, and corporate clients. Our expert team ensures every journey is seamless, memorable, and filled with unique adventures.
+        </p>
+        <p class="mb-4">
+          Our mission is to make travel easy, affordable, and unforgettable, connecting travelers with the world's most breathtaking destinations through carefully curated itineraries and unparalleled service.
+        </p>
+      </div>
+    </div>
+
+<!-- Packages -->
+<section id="packages" class="py-20 shadow-lg bg-gray-100" data-aos="fade-in">
+  <div class="px-6">
+    <h3 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">Popular Tour Packages</h3>
+
+    <input type="text" id="search"
+      placeholder="Search destination..."
+      class="border p-3 w-full mb-8 rounded text-gray-800"
+      onkeyup="filterPackages()" data-aos="fade-up" data-aos-delay="200">
+
+    <div id="packageList" class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+      <!-- Card -->
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg transition"
+           data-name="Thailand" data-aos="fade-up" data-aos-delay="400">
+        <img src="https://images.unsplash.com/photo-1505739773434-c4f6c8d0dcb6"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Thailand Tour</h4>
+          <p class="text-gray-600">5 Days / 4 Nights</p>
+          <p class="font-semibold mt-2">$500</p>
+          <button onclick="openBooking('Thailand')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg transition"
+           data-name="Malaysia" data-aos="fade-up" data-aos-delay="600">
+        <img src="https://images.unsplash.com/photo-1526481280691-3d3e0f1b0a2b"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Malaysia Tour</h4>
+          <p class="text-gray-600">4 Days / 3 Nights</p>
+          <p class="font-semibold mt-2">$400</p>
+          <button onclick="openBooking('Malaysia')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="package bg-white rounded-xl shadow hover:shadow-lg transition"
+           data-name="Dubai" data-aos="fade-up" data-aos-delay="800">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c"
+             class="h-48 w-full object-cover rounded-t-xl">
+        <div class="p-4">
+          <h4 class="text-xl font-bold">Dubai Tour</h4>
+          <p class="text-gray-600">6 Days / 5 Nights</p>
+          <p class="font-semibold mt-2">$700</p>
+          <button onclick="openBooking('Dubai')"
+            class="mt-3 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Booking Modal -->
+<div id="bookingModal"
+  class="hidden fixed inset-0 bg-black/60 flex items-center justify-center">
+  <div class="bg-white p-6 rounded-xl w-96 max-h-screen overflow-y-auto">
+    <h3 class="text-xl font-bold mb-4">Detailed Booking Request</h3>
+    <input id="packageName" class="border p-2 w-full mb-3" readonly placeholder="Package Name">
+    <input id="fullName" class="border p-2 w-full mb-3" placeholder="Full Name" required>
+    <input id="email" type="email" class="border p-2 w-full mb-3" placeholder="Email" required>
+    <input id="phone" type="tel" class="border p-2 w-full mb-3" placeholder="Phone Number" required>
+    <input id="travelers" type="number" class="border p-2 w-full mb-3" placeholder="Number of Travelers" min="1" required>
+    <input id="departureDate" type="date" class="border p-2 w-full mb-3" required>
+    <textarea id="specialRequests" class="border p-2 w-full mb-3" placeholder="Special Requests or Notes" rows="3"></textarea>
+    <button onclick="submitBooking()" class="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700">
+      Submit Request
+    </button>
+    <button onclick="closeBooking()" class="text-red-500 mt-3 w-full hover:text-red-700">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal"
+  class="hidden fixed inset-0 bg-black/60 flex items-center justify-center">
+  <div class="bg-white p-6 rounded-xl w-96">
+    <h3 class="text-xl font-bold mb-4">Login</h3>
+    <input class="border p-2 w-full mb-3" placeholder="Email">
+    <input class="border p-2 w-full mb-3" type="password" placeholder="Password">
+    <button class="bg-purple-600 text-white w-full py-2 rounded hover:bg-purple-700">
+      Login
+    </button>
+    <button onclick="closeLoginModal()" class="text-red-500 mt-3 w-full">
+      Cancel
+    </button>
+    <p class="text-center mt-3 text-sm">
+      Don't have an account? <a href="#" class="text-purple-600">Register</a>
+    </p>
+  </div>
+</div>
+
+<!-- Why Choose Us Premium -->
+<section id="why-choose-us" class="py-20 bg-gray-100" data-aos="fade-in">
+  <div class="px-6">
+    <h3 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">Why Choose Us Premium</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-user-tie text-purple-600 text-4xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Expert Guides</h4>
+        <p class="text-gray-600">Professional and experienced tour guides for premium experiences.</p>
+      </div>
+      <div class="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
+        <i class="fas fa-dollar-sign text-purple-600 text-4xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Best Prices</h4>
+        <p class="text-gray-600">Competitive pricing with exclusive deals for premium packages.</p>
+      </div>
+      <div class="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="600">
+        <i class="fas fa-clock text-purple-600 text-4xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">24/7 Support</h4>
+        <p class="text-gray-600">Round-the-clock customer support for all your travel needs.</p>
+      </div>
+      <div class="text-center bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="800">
+        <i class="fas fa-shield-alt text-purple-600 text-4xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Safe & Secure</h4>
+        <p class="text-gray-600">Your safety and security are our top priorities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial Premium -->
+<section id="testimonials" class="py-20 shadow-lg bg-gray-100" data-aos="fade-in">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">Testimonial Premium</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-xl shadow-lg text-center" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+        <p class="text-gray-600 mb-4">"Amazing premium experience! The guides were exceptional and the itinerary was perfectly planned."</p>
+        <h5 class="font-semibold">John Doe</h5>
+        <span class="text-sm text-gray-500">Business Traveler</span>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-lg text-center" data-aos="fade-up" data-aos-delay="400">
+        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+        <p class="text-gray-600 mb-4">"JT Travel's premium service exceeded our expectations. Highly recommend for luxury travel."</p>
+        <h5 class="font-semibold">Jane Smith</h5>
+        <span class="text-sm text-gray-500">Family Vacation</span>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-lg text-center" data-aos="fade-up" data-aos-delay="600">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+        <p class="text-gray-600 mb-4">"The attention to detail in their premium packages is unmatched. Will book again!"</p>
+        <h5 class="font-semibold">Mike Johnson</h5>
+        <span class="text-sm text-gray-500">Adventure Seeker</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Special Offer Premium -->
+<section id="special-offers" class="py-20 bg-gray-100">
+  <div class="px-6">
+    <h3 class="text-3xl font-bold text-center mb-10">Special Offer Premium</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" class="h-48 w-full object-cover">
+        <div class="p-6">
+          <h4 class="text-xl font-bold mb-2">Luxury Bali Retreat</h4>
+          <p class="text-gray-600 mb-4">7 Days / 6 Nights - Premium villas and private tours</p>
+          <div class="flex items-center mb-4">
+            <span class="text-2xl font-bold text-purple-600">$1200</span>
+            <span class="text-lg text-gray-500 line-through ml-2">$1500</span>
+            <span class="ml-2 bg-red-500 text-white px-2 py-1 rounded text-sm">20% OFF</span>
+          </div>
+          <button class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700">Book Now</button>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" class="h-48 w-full object-cover">
+        <div class="p-6">
+          <h4 class="text-xl font-bold mb-2">Swiss Alps Adventure</h4>
+          <p class="text-gray-600 mb-4">5 Days / 4 Nights - Mountain hiking and luxury stays</p>
+          <div class="flex items-center mb-4">
+            <span class="text-2xl font-bold text-purple-600">$900</span>
+            <span class="text-lg text-gray-500 line-through ml-2">$1100</span>
+            <span class="ml-2 bg-red-500 text-white px-2 py-1 rounded text-sm">18% OFF</span>
+          </div>
+          <button class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700">Book Now</button>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" class="h-48 w-full object-cover">
+        <div class="p-6">
+          <h4 class="text-xl font-bold mb-2">Tokyo Premium Tour</h4>
+          <p class="text-gray-600 mb-4">6 Days / 5 Nights - Cultural immersion and fine dining</p>
+          <div class="flex items-center mb-4">
+            <span class="text-2xl font-bold text-purple-600">$1400</span>
+            <span class="text-lg text-gray-500 line-through ml-2">$1700</span>
+            <span class="ml-2 bg-red-500 text-white px-2 py-1 rounded text-sm">18% OFF</span>
+          </div>
+          <button class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Payment Trust Premium -->
+<section id="payment-trust" class="py-20 shadow-lg" data-aos="fade-in">
+  <div class="px-6">
+    <h3 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">Payment Trust Premium</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
+      <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-lock text-purple-600 text-4xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Secure Payments</h4>
+        <p class="text-gray-600">256-bit SSL encryption for all transactions</p>
+      </div>
+      <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+        <i class="fab fa-cc-visa text-purple-600 text-4xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Accepted Cards</h4>
+        <p class="text-gray-600">Visa, MasterCard, American Express</p>
+      </div>
+      <div class="text-center" data-aos="fade-up" data-aos-delay="600">
+        <i class="fas fa-shield-alt text-purple-600 text-4xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Money Back Guarantee</h4>
+        <p class="text-gray-600">100% refund if not satisfied</p>
+      </div>
+      <div class="text-center" data-aos="fade-up" data-aos-delay="800">
+        <i class="fas fa-award text-purple-600 text-4xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Trusted by Thousands</h4>
+        <p class="text-gray-600">Over 10,000 happy customers worldwide</p>
+      </div>
+    </div>
+    <div class="text-center mt-10" data-aos="fade-up" data-aos-delay="1000">
+      <p class="text-gray-600">Your payment information is protected by industry-leading security standards.</p>
+    </div>
+  </div>
+</section>
+ <!-- Footer -->
+<footer class="bg-gradient-to-r from-purple-600 to-purple-800 text-white relative" data-aos="fade-in">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Brand -->
+    <div class="transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+      <h4 class="text-2xl font-bold mb-2">JT Travel Agency</h4>
+      <p class="text-sm">
+        Making your travel dreams come true with reliable and affordable tour packages.
+      </p>
+    </div>
+
+    <!-- Social Media -->
+    <div data-aos="fade-up" data-aos-delay="400">
+      <h5 class="font-semibold mb-3">Follow Us</h5>
+      <div class="flex space-x-4 text-2xl">
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fas fa-globe"></i></a>
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-purple-200 transform hover:scale-110 transition-all duration-300"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="text-sm mt-4">Stay connected for offers & updates</p>
+    </div>
+
+    <!-- Newsletter -->
+    <div data-aos="fade-up" data-aos-delay="600">
+      <h5 class="font-semibold mb-3">Newsletter</h5>
+      <p class="text-sm mb-3">Subscribe for exclusive deals and travel tips.</p>
+      <form class="space-y-2">
+        <input type="email" placeholder="Your Email" class="w-full p-2 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300">
+        <button type="submit" class="w-full bg-purple-500 hover:bg-purple-400 text-white py-2 rounded transition-colors duration-300">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="text-center text-sm bg-purple-900 py-3" data-aos="fade-up" data-aos-delay="800">
+    © 2025 JT Travel Agency | Portfolio Project by Joy Sarker
+  </div>
+
+
+  <!-- Back to Top Button -->
+  <button onclick="scrollToTop()" class="fixed bottom-4 right-4 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full shadow-lg transform hover:scale-110 hover:bounce transition-all duration-300" data-aos="fade-in" data-aos-delay="1000">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</footer>
+
+
+
+<script>
+function filterPackages() {
+  let value = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.package').forEach(pkg => {
+    pkg.style.display = pkg.dataset.name.toLowerCase().includes(value) ? "block" : "none";
+  });
+}
+
+function openBooking(name) {
+  document.getElementById('bookingModal').classList.remove('hidden');
+  document.getElementById('packageName').value = name;
+}
+
+function submitBooking() {
+  const packageName = document.getElementById('packageName').value;
+  const fullName = document.getElementById('fullName').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const travelers = document.getElementById('travelers').value;
+  const departureDate = document.getElementById('departureDate').value;
+  const specialRequests = document.getElementById('specialRequests').value;
+
+  if (!fullName || !email || !phone || !travelers || !departureDate) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  // Simulate submission (in real app, send to server)
+  alert(`Booking submitted for ${packageName}\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nTravelers: ${travelers}\nDate: ${departureDate}\nRequests: ${specialRequests}`);
+  closeBooking();
+}
+
+function closeBooking() {
+  document.getElementById('bookingModal').classList.add('hidden');
+  // Clear form
+  document.getElementById('fullName').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('phone').value = '';
+  document.getElementById('travelers').value = '';
+  document.getElementById('departureDate').value = '';
+  document.getElementById('specialRequests').value = '';
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('hidden');
+}
+
+function openLoginModal() {
+  document.getElementById('loginModal').classList.remove('hidden');
+}
+
+function closeLoginModal() {
+  document.getElementById('loginModal').classList.add('hidden');
+}
+
+// Initialize AOS animations
+AOS.init();
+</script>
+
+</body>
+</html>
